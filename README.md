@@ -12,11 +12,11 @@ Monitoreo de Peso, Información sobre hábitos saludables, recetas y suplementos
 
 ## ApiConnectSalud
 
-Proyecto Creado  [django-rest-framework](https://www.django-rest-framework.org/) Api para el consumo en BackEnd de ConnectSalud
+Proyecto Creado para un API en BackEnd de [Django](https://www.python.org/) con su [Rest Framework](https://www.django-rest-framework.org/) para el consumo de ConnectSalud
 
 ## ConnectSalud
 
-Proyecto Creado con FrontEnd en [Angular](https://angular.io/) y BackEnd en [Django](https://www.python.org/) con su [Rest Framework](https://www.django-rest-framework.org/) para el Segundo Año te la Tecnicatura de Desarrollo Web y Aplicaciones Digitales del ISPC
+Proyecto Creado con FrontEnd en [Angular](https://angular.io/) 
 
 ## Miembros del Grupo28
 
