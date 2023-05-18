@@ -10,7 +10,7 @@ Monitoreo de Peso, Información sobre hábitos saludables, recetas y suplementos
 - ApiConnectSalud
 - ConnectSalud
 
-## ApiConnctSalud
+## ApiConnectSalud
 
 Proyecto Creado  [django-rest-framework](https://www.django-rest-framework.org/) Api para el consumo en BackEnd de ConnectSalud
 
