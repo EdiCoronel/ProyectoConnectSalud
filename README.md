@@ -1,8 +1,6 @@
 # ProyectoConnectSalud
 Repositorio de Pruebas
 
-# Proyecto ConnectSalud
-
 ## Sitio Web de Cuidado de la Salud
 
 Monitoreo de Peso, Información sobre hábitos saludables, recetas y suplementos dietarios.
