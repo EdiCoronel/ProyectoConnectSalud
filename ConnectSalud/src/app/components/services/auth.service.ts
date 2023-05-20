@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router'
 import { Observable } from 'rxjs';
+import { AuthStateService } from './auth-state.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -22,7 +23,7 @@ export class AuthService {
     return this.http.post<any>(this.api_url + 'api/register/', userData);  
   }
   
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private authStateService: AuthStateService) { }
 
   login(username: string, password: string) {
     return this.http.post<any>(this.api_url + 'api/login/', { username, password }, httpOptions)
@@ -30,6 +31,7 @@ export class AuthService {
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
+        this.authStateService.setLoggedIn(true);
         this.router.navigate(['/inicio']);
         return user;
       }));
@@ -37,6 +39,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    this.authStateService.setLoggedIn(false);
     this.router.navigate(['/login']);
   }
 }
