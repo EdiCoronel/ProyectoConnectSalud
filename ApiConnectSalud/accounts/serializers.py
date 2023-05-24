@@ -39,3 +39,9 @@ class UsersSerializer(serializers.ModelSerializer):
         model = Users
         fields = ['id_paciente','dni', 'nombre', 'apellido', 'telefono', 'correo', 'fecha', 'hora', 'mensaje', 'fecha_registro']
 
+# Lista de Usuarios 
+
+class ListUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'is_staff', 'is_superuser', 'is_active', 'date_joined']

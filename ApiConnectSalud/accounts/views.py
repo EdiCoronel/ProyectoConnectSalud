@@ -84,3 +84,13 @@ from rest_framework import viewsets
 class UsersViewSet(viewsets.ModelViewSet):
     queryset = Users.objects.all()
     serializer_class = UsersSerializer
+
+# Lista de Usuarios
+
+from rest_framework.views import APIView
+
+class ListUser(APIView):
+    def get(self, request):
+        user = User.objects.all()
+        serializer = UserSerializer(user, many=True)
+        return Response(serializer.data)

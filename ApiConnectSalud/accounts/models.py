@@ -50,3 +50,16 @@ def __str__(self):
         return "No hay nombre"
     return self.nombre
 
+class ListUser(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
+    date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(auto_now=True)
+    
+    
+
+    def __str__(self):
+        return self.name
