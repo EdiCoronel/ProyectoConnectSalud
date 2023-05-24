@@ -15,6 +15,7 @@ import {
   CarritoComponent,
   ListCitasComponent,
   EditCitasComponent,
+  ListUsersComponent,
 } from "./components/index.paginas"
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
     { path: 'list-citas', component: ListCitasComponent, canActivate:[AuthGuard]},
     { path: 'edit-citas', component: EditCitasComponent, canActivate:[AuthGuard]},
     { path: 'edit/:id_paciente', component:EditCitasComponent, canActivate:[AuthGuard]},
+    { path: 'list-users', component: ListUsersComponent, canActivate:[AuthGuard]},
     { path: '**', pathMatch: 'full', redirectTo: 'inicio' },
 ];
 

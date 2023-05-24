@@ -19,6 +19,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { EditCitasComponent } from './components/edit-citas/edit-citas.component';
 import { ListCitasComponent } from './components/list-citas/list-citas.component';
 import { TurnosComponent } from './components/index.paginas';
+import { ListUsersComponent } from './components/list-users/list-users.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { TurnosComponent } from './components/index.paginas';
     EditCitasComponent,
     ListCitasComponent,
     TurnosComponent,
+    ListUsersComponent,
   ],
   imports: [
     BrowserModule,

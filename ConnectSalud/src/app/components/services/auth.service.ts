@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router'
+import { Data, Router } from '@angular/router'
 import { Observable } from 'rxjs';
 import { AuthStateService } from './auth-state.service';
 
@@ -41,5 +41,11 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     this.authStateService.setLoggedIn(false);
     this.router.navigate(['/login']);
+  }
+
+  getUsers(): Observable<any[]> {
+    return this.http.get<any[]>(this.api_url + 'api/listusers/').pipe(
+      map(response => response)
+    );
   }
 }
