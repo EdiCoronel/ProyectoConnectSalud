@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms'
-import { AuthService } from '../services/auth.service'
+import { AuthService } from '../../services/auth.service'
 import { first } from 'rxjs/operators'
-import { AuthStateService } from '../services/auth-state.service';
+import { AuthStateService } from '../../services/auth-state.service';
 
 
 @Component({

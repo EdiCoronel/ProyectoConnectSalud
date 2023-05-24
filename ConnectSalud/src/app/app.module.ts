@@ -14,7 +14,7 @@ import { RecetasComponent } from './components/recetas/recetas.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MonitoreodepesoComponent } from './components/monitoreodepeso/monitoreodepeso.component';
-import { AuthGuard } from './components/guard/auth.guard';
+import { AuthGuard } from './guard/auth.guard';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { EditCitasComponent } from './components/edit-citas/edit-citas.component';
 import { ListCitasComponent } from './components/list-citas/list-citas.component';
