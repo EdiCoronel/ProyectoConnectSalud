@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthStateService {
   private isLoggedIn: boolean = false;
 
+
   constructor() {
     const storedUser = localStorage.getItem('currentUser');
     if (storedUser) {
@@ -25,4 +26,5 @@ export class AuthStateService {
   isUserLoggedIn(): boolean {
     return this.isLoggedIn;
   }
+
 }

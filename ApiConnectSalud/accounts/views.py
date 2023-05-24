@@ -94,3 +94,9 @@ class ListUser(APIView):
         user = User.objects.all()
         serializer = ListUserSerializer(user, many=True)
         return Response(serializer.data)
+    
+    def delete(self, request, pk):
+        user = User.objects.get(pk=pk)
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    

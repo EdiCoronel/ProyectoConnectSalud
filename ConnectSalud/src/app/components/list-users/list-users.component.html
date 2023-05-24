@@ -23,10 +23,6 @@
                 <td>{{user.last_login}}</td>
                 <td><button (click)="deleteUser(user.id)" class="btn btn-danger">Borrar</button></td>
                 <td><button [routerLink]="['/edit/', user.id]" class="btn btn-success">Editar</button></td>
-            
-        <!--        <td><button (click)="deleteCitas(user.id_paciente)" class="btn btn-danger">Borrar</button></td>
-                <td><button [routerLink]="['/edit/', user.id_paciente]" class="btn btn-success">Editar</button></td>
-        -->
             </tr>
         </tbody>
     </table>
