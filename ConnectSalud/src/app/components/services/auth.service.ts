@@ -43,9 +43,16 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  // Lista de Usuarios
+
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>(this.api_url + 'api/listusers/').pipe(
       map(response => response)
     );
+  }
+
+  deleteUser(id: number): Observable<any> {
+    const url = `${this.api_url}api/listusers/${id}/`; // Ajusta esto según tu ruta de eliminación de usuario
+    return this.http.delete<any>(url);
   }
 }

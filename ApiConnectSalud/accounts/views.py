@@ -5,7 +5,7 @@ from django.shortcuts import render
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, UsersSerializer
+from .serializers import ListUserSerializer, UserSerializer, RegisterSerializer, UsersSerializer
 from django.contrib.auth import login
 
 from rest_framework.authtoken.serializers import AuthTokenSerializer
@@ -92,5 +92,5 @@ from rest_framework.views import APIView
 class ListUser(APIView):
     def get(self, request):
         user = User.objects.all()
-        serializer = UserSerializer(user, many=True)
+        serializer = ListUserSerializer(user, many=True)
         return Response(serializer.data)

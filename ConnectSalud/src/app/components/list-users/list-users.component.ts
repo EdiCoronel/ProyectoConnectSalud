@@ -16,5 +16,10 @@ export class ListUsersComponent implements OnInit {
       this.users = users;
     });
   }
-  }
 
+  deleteUser(id: number) {
+    this.authService.deleteUser(id).subscribe(() => {
+      this.users = this.users.filter(user => user.id !== id);
+    });
+  }
+}

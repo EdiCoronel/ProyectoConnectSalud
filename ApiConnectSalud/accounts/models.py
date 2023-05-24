@@ -51,6 +51,7 @@ def __str__(self):
     return self.nombre
 
 class ListUser(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     is_staff = models.BooleanField(default=False)
