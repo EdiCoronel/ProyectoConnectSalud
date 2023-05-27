@@ -20,6 +20,8 @@ import { EditCitasComponent } from './components/edit-citas/edit-citas.component
 import { ListCitasComponent } from './components/list-citas/list-citas.component';
 import { TurnosComponent } from './components/index.paginas';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { PerfilComponent } from './components/index.paginas'; './components/perfil/perfil.component';
+import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     ListCitasComponent,
     TurnosComponent,
     ListUsersComponent,
+    PerfilComponent,
+    EditPerfilComponent,
   ],
   imports: [
     BrowserModule,
