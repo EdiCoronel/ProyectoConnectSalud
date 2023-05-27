@@ -15,10 +15,12 @@
                 <a routerLink='register' class="h-50 p-3 text-black rounded-3" style="background-color: #FCEE7D; margin-left: 5px; text-decoration: none;" aria-current="page">Registrate</a>
             </div>
             <div>
-                <!-- Contenido para el superusuario -->
+                <!-- Contenido para el superusuario 
                 <a routerLink='list-users' class="h-50 p-3 text-black rounded-3" style="background-color: #FCEE7D; margin-left: 5px; text-decoration: none;" aria-current="page">Lista</a>
+                -->
             </div>
-            <div class="col-md-3 ">
+            <div *ngIf="isLoggedIn()" class="col-md-3 ">
+                <a routerLink="perfil" class="h-50 p-3 text-black rounded-circle" aria-current="page"><img class="rounded-circle" src="./assets/img/user-profile.png" alt="Perfil" style="background-color: #FCEE7D; display: inline-block; width: 60px;"></a>
                 <a (click)="logout()" class="h-50 p-3 text-black rounded-3" style="background-color: #FCEE7D; margin-left: 5px; text-decoration: none; cursor:pointer" aria-current="page">Cerrar Sesion</a>
             </div>
         </header>
