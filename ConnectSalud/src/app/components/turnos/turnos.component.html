@@ -14,12 +14,15 @@
                     <tr><td>Fecha</td><td><input type="date" class="form-control" formControlName="fecha"></td></tr>
                     <tr><td>Hora</td><td><input type="time" class="form-control" formControlName="hora"></td></tr>
                     <tr><td>Mensaje</td><td><input type="text" class="form-control" formControlName="mensaje"></td></tr>
-                    <tr><td colspan="2"><button type="submit" class="btn btn-primary">Reservar</button></td></tr>
+                    <tr><td colspan="2" class="text-center">
+                        <button type="submit" class="btn btn-primary" style="margin-top: 2%; background-color: blue;">Reservar</button>
+                    </td></tr>
                 </table>
+                <div class="text-center">
+                    <button type="button" routerLink='/inicio' class="btn btn-success" style="background-color: green;">Salir</button>
+                    <button type="button" routerLink='/list-citas' class="btn btn-success" style="margin-left: 2%; background-color: red;">Editar Cita</button>
+                </div>
             </form>
-        </div>
-        <div class="container pricing-header p-3 pb-md-4 mx-auto text-center">
-            <button type="button" routerLink='/list-citas' class="btn btn-success">Editar Cita</button>
         </div>
     </div>
 </section>

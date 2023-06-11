@@ -1,6 +1,8 @@
+from .models import Citas
 from rest_framework import serializers
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
@@ -32,11 +34,11 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 # Api Citas
 
-from accounts.models import Users
+from accounts.models import Citas
 
-class UsersSerializer(serializers.ModelSerializer):
+class CitasSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Users
+        model = Citas
         fields = ['id_paciente','dni', 'nombre', 'apellido', 'telefono', 'correo', 'fecha', 'hora', 'mensaje', 'fecha_registro']
 
 # Lista de Usuarios 
@@ -45,3 +47,15 @@ class ListUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'is_superuser', 'is_staff', 'date_joined', 'last_login']
+
+# Perfil de Usuario
+
+from rest_framework import serializers
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name']

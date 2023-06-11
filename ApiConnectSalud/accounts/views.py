@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import ListUserSerializer, UserSerializer, RegisterSerializer, UsersSerializer
+from .serializers import ListUserSerializer, UserSerializer, RegisterSerializer, CitasSerializer
 from django.contrib.auth import login
 
 from rest_framework.authtoken.serializers import AuthTokenSerializer
@@ -76,27 +76,54 @@ class ChangePasswordView(generics.UpdateAPIView):
 
 # Api Citas
 
-from .models import Users
+from .models import Citas
 from rest_framework import viewsets 
 
 # Create your views here.
 
-class UsersViewSet(viewsets.ModelViewSet):
-    queryset = Users.objects.all()
-    serializer_class = UsersSerializer
+class CitasViewSet(viewsets.ModelViewSet):
+    queryset = Citas.objects.all()
+    serializer_class = CitasSerializer
 
 # Lista de Usuarios
 
 from rest_framework.views import APIView
 
 class ListUser(APIView):
-    def get(self, request):
-        user = User.objects.all()
-        serializer = ListUserSerializer(user, many=True)
-        return Response(serializer.data)
+    def get(self, request, pk=None):
+        if pk is not None:
+            user = get_object_or_404(User, pk=pk)
+            serializer = ListUserSerializer(user)
+            return Response(serializer.data)
+        else:
+            users = User.objects.all()
+            serializer = ListUserSerializer(users, many=True)
+            return Response(serializer.data)
+    
+    def post(self, request):
+        serializer = ListUserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def delete(self, request, pk):
         user = User.objects.get(pk=pk)
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
+# Perfil de Usuario
+
+from rest_framework import generics, permissions
+from .serializers import UserSerializer
+
+class UserDetailAPIView(generics.RetrieveUpdateAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(pk=self.request.user.pk)

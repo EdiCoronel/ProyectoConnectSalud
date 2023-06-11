@@ -1,12 +1,11 @@
 from django.db import models
-
-# Create your models here.
-
 from django.dispatch import receiver
 from django.urls import reverse
 from django_rest_passwordreset.signals import reset_password_token_created
-from django.core.mail import send_mail  
+from django.core.mail import send_mail
+from datetime import datetime
 
+# Create your models here.
 
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
@@ -26,11 +25,7 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
 
 # Api Citas
 
-from datetime import datetime
-
-# Create your models here.
-
-class Users(models.Model):
+class Citas(models.Model):
     id_paciente = models.AutoField(primary_key=True)
     dni = models.CharField(max_length=8, null=False, default='DEFAULT_VALUE')
     nombre = models.CharField(max_length=50)
@@ -63,3 +58,6 @@ class ListUser(models.Model):
 
     def __str__(self):
         return self.name
+
+#  User
+

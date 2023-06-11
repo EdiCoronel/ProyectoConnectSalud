@@ -1,6 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guard/auth.guard';
-import { Component, NgModule } from '@angular/core'
 
 import {
   InicioComponent,
@@ -17,7 +16,7 @@ import {
   EditCitasComponent,
   ListUsersComponent,
   PerfilComponent,
-  EditPerfilComponent,
+  EditUsersComponent,
 } from "./components/index.paginas"
 
 
@@ -37,8 +36,9 @@ const routes: Routes = [
     { path: 'edit-citas', component: EditCitasComponent, canActivate:[AuthGuard]},
     { path: 'edit/:id_paciente', component:EditCitasComponent, canActivate:[AuthGuard]},
     { path: 'list-users', component: ListUsersComponent, canActivate:[AuthGuard]},
+    { path: 'edit-users', component: EditUsersComponent, canActivate:[AuthGuard]},
+    { path: 'edit-users/:id', component:EditUsersComponent, canActivate:[AuthGuard]},
     { path: 'perfil', component: PerfilComponent, canActivate:[AuthGuard]},
-    {path: 'edit-perfil', component: EditPerfilComponent, canActivate:[AuthGuard] },
     { path: '**', pathMatch: 'full', redirectTo: 'inicio' },
 ];
 

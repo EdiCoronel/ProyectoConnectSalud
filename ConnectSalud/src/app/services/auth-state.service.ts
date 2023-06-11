@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthStateService {
+  private readonly TOKEN_KEY = 'token';
   private isLoggedIn: boolean = false;
-
+  
 
   constructor() {
     const storedUser = localStorage.getItem('currentUser');
@@ -24,6 +25,20 @@ export class AuthStateService {
   }
 
   isUserLoggedIn(): boolean {
+    return this.isLoggedIn;
+  }
+
+  setToken(token: string) {
+    localStorage.setItem(this.TOKEN_KEY, token);
+    console.log(token)
+  }
+
+  getToken() {
+    return localStorage.getItem(this.TOKEN_KEY);
+
+  }
+
+  getLoggedInStatus(): boolean {
     return this.isLoggedIn;
   }
 

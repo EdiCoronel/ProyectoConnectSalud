@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { app_routing } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,8 +21,11 @@ import { ListCitasComponent } from './components/list-citas/list-citas.component
 import { TurnosComponent } from './components/index.paginas';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { PerfilComponent } from './components/index.paginas'; './components/perfil/perfil.component';
-import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.component';
-
+import { EditUsersComponent } from './components/edit-users/edit-users.component';
+import { AuthService } from './services/auth.service';
+import {AuthStateService} from './services/auth-state.service'
+import { InterceptorService } from './interceptors/interceptor.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,7 @@ import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.compon
     TurnosComponent,
     ListUsersComponent,
     PerfilComponent,
-    EditPerfilComponent,
+    EditUsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,18 @@ import { EditPerfilComponent } from './components/edit-perfil/edit-perfil.compon
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    AuthService,
+    AuthStateService,
+    UserService,
+    InterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@ from django.contrib import admin
 
 # Api Citas
 
-from .models import Users
+from .models import Citas
 
 # Register your models here.
 
@@ -14,5 +14,5 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ['fecha_registro', 'sexo']
     list_per_page = 10
 
-admin.site.register(Users)
+admin.site.register(Citas)
 

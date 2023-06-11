@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Data, Router } from '@angular/router'
+import { Router } from '@angular/router'
 import { Observable } from 'rxjs';
 import { AuthStateService } from './auth-state.service';
 
@@ -31,6 +31,7 @@ export class AuthService {
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
+        console.log(user.token)
         this.authStateService.setLoggedIn(true);
         this.router.navigate(['/inicio']);
         return user;
@@ -39,6 +40,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
     this.authStateService.setLoggedIn(false);
     this.router.navigate(['/login']);
   }
@@ -52,7 +54,9 @@ export class AuthService {
   }
 
   deleteUser(id: number): Observable<any> {
-    const url = `${this.api_url}api/listusers/${id}/`; // Ajusta esto según tu ruta de eliminación de usuario
+    const url = `${this.api_url}api/listusers/${id}/`; 
     return this.http.delete<any>(url);
   }
 }
+
+  

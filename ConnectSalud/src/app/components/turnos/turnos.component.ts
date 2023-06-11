@@ -32,8 +32,8 @@ export class TurnosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  postdata(data:any){
-    this.dataService.AddCitas(this.angForm.value).subscribe(data=>{
+  postdata(_data: any){
+    this.dataService.AddCitas(this.angForm.value).subscribe((_data)=>{
       this.route.navigate(['list-citas']);
     })
     
