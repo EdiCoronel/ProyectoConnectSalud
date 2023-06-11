@@ -7,9 +7,10 @@
             <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off">
             <table class="table">
                 <tr><td>Id</td><td><input type="number" class="form-control" formControlName="id"></td></tr>
-                <tr><td>Username</td><td><input type="text" class="form-control" formControlName="username"></td></tr>
+                <tr><td>Usuario</td><td><input type="text" class="form-control" formControlName="username"></td></tr>
                 <tr><td>Email</td><td><input type="text" class="form-control" formControlName="email"></td></tr>
-                
+                <tr><td>Administrador</td><td><input type="text" class="form-control" formControlName="is_superuser"></td></tr>
+                <tr><td>Staff</td><td><input type="text" class="form-control" formControlName="is_staff"></td></tr>
                 <tr><td colspan="2" class="text-center"><button type="submit" class="btn btn-warning" >Editar</button></td></tr>
             </table>   
             </form>

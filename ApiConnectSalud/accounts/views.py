@@ -107,6 +107,15 @@ class ListUser(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    def put(self, request, pk):
+        user = User.objects.get(pk=pk)
+        serializer = ListUserSerializer(user, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    
+    
     def delete(self, request, pk):
         user = User.objects.get(pk=pk)
         user.delete()
