@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms'
 import { AuthService } from '../../services/auth.service'
 import { first } from 'rxjs/operators'
 import { AuthStateService } from '../../services/auth-state.service';
-import {InterceptorService} from '../../interceptors/interceptor.service'
+
 
 
 @Component({
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   
   myform: FormGroup;
 
-  constructor( private authService: AuthService, private authStateService: AuthStateService, private interceptorService: InterceptorService ) {}
+  constructor( private authService: AuthService, private authStateService: AuthStateService ) {}
 
   ngOnInit(): void {
     this.myform = new FormGroup({

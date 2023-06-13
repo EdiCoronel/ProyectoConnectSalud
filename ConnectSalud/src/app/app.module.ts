@@ -24,7 +24,6 @@ import { PerfilComponent } from './components/index.paginas'; './components/perf
 import { EditUsersComponent } from './components/edit-users/edit-users.component';
 import { AuthService } from './services/auth.service';
 import {AuthStateService} from './services/auth-state.service'
-import { InterceptorService } from './interceptors/interceptor.service';
 import { UserService } from './services/user.service';
 
 @NgModule({
@@ -59,12 +58,6 @@ import { UserService } from './services/user.service';
     AuthService,
     AuthStateService,
     UserService,
-    InterceptorService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
-      multi: true
-    }
   ],
   bootstrap: [AppComponent]
 })

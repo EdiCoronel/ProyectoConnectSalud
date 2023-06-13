@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import ListUserSerializer, UserSerializer, RegisterSerializer, CitasSerializer
@@ -11,10 +11,10 @@ from django.contrib.auth import login
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
 
-from rest_framework import status
+from rest_framework.authentication import TokenAuthentication
 from django.contrib.auth.models import User
 from .serializers import ChangePasswordSerializer
-from rest_framework.permissions import IsAuthenticated   
+from rest_framework.permissions import IsAuthenticated, IsAdminUser   
 
 # Register API
 class RegisterAPI(generics.GenericAPIView):
