@@ -23,15 +23,6 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         return user
 
-class ChangePasswordSerializer(serializers.Serializer):
-    model = User
-
-    """
-    Serializer for password change endpoint.
-    """
-    old_password = serializers.CharField(required=True)
-    new_password = serializers.CharField(required=True)
-
 # Api Citas
 
 from accounts.models import Citas
@@ -49,11 +40,6 @@ class ListUserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email', 'is_superuser', 'is_staff', 'date_joined', 'last_login']
 
 # Perfil de Usuario
-
-from rest_framework import serializers
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
